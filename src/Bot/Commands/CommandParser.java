@@ -57,17 +57,28 @@ public class CommandParser {
         
         //Hidden commands first
         
+        Ban ban = new Ban();
+        Why why = new Why();
+        Kick kick = new Kick();
         Command coms = new Commands();
         Plz plz = new Plz();
+        
         Me stats = new Me();
         Recolor col = new Recolor();
         
+        
         ////////////////
+        
+        addCommand(ret,stats);
+        addCommand(ret,col);
         
         addCommand(ret,coms);
         addCommand(ret,plz);
-        addCommand(ret,col);
-        addCommand(ret,stats);
+        addCommand(ret,ban);
+        addCommand(ret,why);
+        addCommand(ret,kick);
+        
+        
         
         return ret;
     }

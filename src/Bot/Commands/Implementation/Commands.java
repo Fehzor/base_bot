@@ -8,6 +8,7 @@ package Bot.Commands.Implementation;
 import Bot.Commands.Command;
 import Bot.Commands.CommandParser;
 import Bot.Launcher;
+import java.util.ArrayList;
 
 /**
  *
@@ -28,18 +29,32 @@ public class Commands extends Command{
         String b = "**→Commands**\n";
         String c = "**→Commands**\n";
         String d = "**→Other Commands**\n";
+        
+        ArrayList<Command> taken = new ArrayList<>();
         for(String s : CommandParser.commandList.keySet()){
             Command C = CommandParser.commandList.get(s);
             if(C.category == 1){
-                a+=C.toString()+"\n";
+                if(!taken.contains(C)){
+                    a+=C.toString()+"\n";
+                    taken.add(C);
+                }
             } else if(C.category == 2){
-                b+=C.toString()+"\n";
+                if(!taken.contains(C)){
+                    b+=C.toString()+"\n";
+                    taken.add(C);
+                }
             } else if(C.category == 3) {
-                c+=C.toString()+"\n";
+                if(!taken.contains(C)){
+                    c+=C.toString()+"\n";
+                    taken.add(C);
+                }
             } else if(C.category == -1){
                 //Drop it. It's hidden.
             } else {
-                d+=C.toString()+"\n";
+                if(!taken.contains(C)){
+                    d+=C.toString()+"\n";
+                    taken.add(C);
+                }
             }
         }
         
