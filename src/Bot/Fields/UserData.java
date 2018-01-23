@@ -55,6 +55,8 @@ public class UserData {
     
     public Field<Integer> lols;
     public Field<HashMap<String,Integer>> emoji;
+    public Field<Integer> blocks;
+    
     public Field<Long> role;
     
     
@@ -66,8 +68,10 @@ public class UserData {
         String s = "**"+name+"**\n\n";
         
         s+="Lols: "+lols.getData()+"\n";
-        
+        s+="Chat Blocks: "+blocks.getData()+"\n";
         s+="Emoji: "+emoji.getData()+"\n";
+        
+        
         
         return s;
     }
@@ -79,6 +83,8 @@ public class UserData {
         
         lols = new Field<>(this.ID,"lols",0);
         emoji = new Field<>(this.ID,"emoji",new HashMap<>());
+        blocks = new Field<>(this.ID,"blocks",0);
+        
         role = new Field<>(this.ID,"role",this.getRoleIfApplicable(ID).getLongID());
         
         IRole theRole = Launcher.client.getRoleByID(role.getData());

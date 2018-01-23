@@ -61,7 +61,7 @@ public class Launcher implements IListener<MessageReceivedEvent>{
         private static IChannel currentChannel = null;
         
 	public static void main(String[] args) { // Main method
-		INSTANCE = login("Mjc1MzcwMDE2Mjk4MzY5MDI1.DTFdxg.UEu-MF7xO7ud61ki5LXiK_E45ls"); // Creates the bot instance and logs it in.
+		INSTANCE = login(args[0]); // Creates the bot instance and logs it in.
         }
         
         public static Lock messageLock = new ReentrantLock();

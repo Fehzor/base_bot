@@ -115,6 +115,7 @@ public class messageHandler {
             if(!a.equals(b)){
                 previous.put(chan,current.get(chan));
                 current.put(chan,mess);
+                UD.blocks.append(1);
             } else {
                 current.put(chan, mess);
             }
